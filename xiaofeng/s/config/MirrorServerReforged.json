@@ -1,0 +1,14 @@
+{
+  "world":[
+    "world"
+  ],
+  "command":"python3 -m mcdreforged",
+  "rcon":{
+    "enable":true,
+    "host":"localhost",
+    "port":25575,
+    "password":"password"
+  },
+  "source":"./server",
+  "target":"./Mirror/server"
+}

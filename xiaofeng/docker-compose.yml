@@ -1,0 +1,46 @@
+
+services:
+  bc: 
+    image: mcdreforged/mcdreforged-temurin:latest-jdk17-extra
+    working_dir: /data
+    volumes: 
+      - type: bind
+        source: ./bc
+        target: /data
+    command: java -jar BungeeCord.jar
+    ports: 
+      - "25565:25565"
+
+  s:
+    image: mcdreforged/mcdreforged-temurin:latest-jdk17-extra
+    working_dir: /data
+    volumes:
+      - type: bind
+        source: ./s
+        target: /data
+    command: python3 -m mcdreforged start --auto-init
+    stdin_open: true
+    tty: true
+
+  c:
+    image: mcdreforged/mcdreforged-temurin:latest-jdk17-extra
+    working_dir: /data
+    volumes:
+      - type: bind
+        source: ./c
+        target: /data
+    command: python3 -m mcdreforged start --auto-init
+    stdin_open: true
+    tty: true
+
+  chatbridge:
+    image: mcdreforged/mcdreforged-temurin:latest-jdk17-extra
+    working_dir: /data
+    volumes:
+      - type: bind
+        source: ./chatbridge
+        target: /data
+    command: python3 ChatBridge.pyz server
+    stdin_open: true
+    tty: true
+

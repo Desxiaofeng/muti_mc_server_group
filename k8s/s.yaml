@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: s
+  template:
+    metadata:
+      labels:
+        app: s
+    spec:
+      containers:
+        - name: minecraft
+          image: mcdreforged/mcdreforged-temurin:latest-jdk17-extra
+          workingDir: /data
+          tty: true
+          stdin: true
+          ports:
+            - containerPort: 25565
+            - containerPort: 25566
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          hostPath:
+            path: /home/mc/muti_server_group/xiaofeng/s
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: s
+spec:
+  selector:
+    app: s
+  ports:
+    - name: s
+      protocol: TCP
+      port: 25565
+      targetPort: 25565
+    - name: m
+      protocol: TCP
+      port: 25566
+      targetPort: 25566
+  type: ClusterIP
+

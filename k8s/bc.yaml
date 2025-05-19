@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bc
+  labels:
+    app: bc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bc
+  template:
+    metadata:
+      labels:
+        app: bc
+    spec:
+      containers:
+        - name: bungeecord
+          image: mcdreforged/mcdreforged-temurin:latest-jdk17-extra
+          workingDir: /data
+          command: ["java"]
+          args: ["-jar", "BungeeCord.jar"]
+          tty: true
+          stdin: true
+          ports:
+            - containerPort: 25565
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          hostPath:
+            path: /home/mc/muti_server_group/xiaofeng/bc
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bc
+spec:
+  selector:
+    app: bc
+  ports:
+    - protocol: TCP
+      port: 25565
+      targetPort: 25565
+      nodePort: 30000
+  type: NodePort
+

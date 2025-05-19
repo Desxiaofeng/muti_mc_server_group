@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatbridge
+  labels:
+    app: chatbridge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatbridge
+  template:
+    metadata:
+      labels:
+        app: chatbridge
+    spec:
+      containers:
+        - name: chatbridge
+          image: mcdreforged/mcdreforged-temurin:latest-jdk17-extra
+          workingDir: /data
+          command: ["python3"]
+          args: ["ChatBridge.pyz", "server"]
+          tty: true
+          stdin: true
+          ports:
+            - containerPort: 25565
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          hostPath:
+            path: /home/mc/muti_server_group/xiaofeng/chatbridge
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chatbridge
+spec:
+  selector:
+    app: chatbridge
+  ports:
+    - protocol: TCP
+      port: 30001
+      targetPort: 30001
+  type: ClusterIP
+

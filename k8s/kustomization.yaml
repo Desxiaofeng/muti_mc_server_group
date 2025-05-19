@@ -1,0 +1,8 @@
+namespace: xiaofeng
+
+resources:
+  - ns.yaml 
+  - bc.yaml
+  - s.yaml
+  - c.yaml
+  - chatbridge.yaml

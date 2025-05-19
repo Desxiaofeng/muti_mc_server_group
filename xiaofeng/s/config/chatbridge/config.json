@@ -1,0 +1,10 @@
+{
+    "aes_key": "ThisIstheSecret",
+    "name": "s",
+    "password": "s",
+    "server_hostname": "chatbridge",
+    "server_port": 30001,
+    "enable": true,
+    "debug": false,
+    "client_to_query_online": null
+}

@@ -1,0 +1,26 @@
+[Server] [2025-05-19 16:00:41] [ServerThread/INFO]: Server started at 0.0.0.0:30001
+[Server] [2025-05-19 16:00:41] [ServerThread/INFO]: New connection #1 from 10.244.0.23:57276
+[Server] [2025-05-19 16:00:41] [Connection#1/INFO]: Identification of 10.244.0.23:57276 confirmed: c
+[Server.c] [2025-05-19 16:00:41] [MainLoop.c/INFO]: Started client connection
+[Server] [2025-05-19 16:00:42] [ServerThread/INFO]: New connection #2 from 10.244.0.25:37880
+[Server] [2025-05-19 16:00:42] [Connection#2/INFO]: Identification of 10.244.0.25:37880 confirmed: s
+[Server.s] [2025-05-19 16:00:42] [MainLoop.s/INFO]: Started client connection
+[Server] [2025-05-19 16:00:54] [MainLoop.c/INFO]: Chat from c: Server has started up
+[Server] [2025-05-19 16:00:54] [MainLoop.s/INFO]: Chat from s: Server has started up
+[Server] [2025-05-19 16:01:53] [MainLoop.s/INFO]: Chat from s: Az_xiaofeng joined s
+[Server] [2025-05-19 16:02:00] [MainLoop.s/INFO]: Chat from s: Az_xiaofeng left s
+[Server] [2025-05-19 16:02:00] [MainLoop.c/INFO]: Chat from c: Az_xiaofeng joined c
+[Server] [2025-05-19 16:02:12] [MainLoop.s/INFO]: Chat from s: Az_xiaofeng joined s
+[Server] [2025-05-19 16:02:12] [MainLoop.c/INFO]: Chat from c: Az_xiaofeng left c
+[Server] [2025-05-19 16:02:17] [MainLoop.s/INFO]: Chat from s: <Az_xiaofeng> !!msr sync
+[Server] [2025-05-19 16:02:27] [MainLoop.s/INFO]: Chat from s: <Az_xiaofeng> !!msr sync
+[Server] [2025-05-19 16:02:31] [MainLoop.s/INFO]: Chat from s: <Az_xiaofeng> !!msr start
+[Server] [2025-05-19 16:02:32] [ServerThread/INFO]: New connection #3 from 10.244.0.25:42180
+[Server] [2025-05-19 16:02:32] [Connection#3/INFO]: Identification of 10.244.0.25:42180 confirmed: m
+[Server.m] [2025-05-19 16:02:32] [MainLoop.m/INFO]: Started client connection
+[Server] [2025-05-19 16:02:42] [MainLoop.m/INFO]: Chat from m: Server has started up
+[Server] [2025-05-19 16:02:46] [MainLoop.s/INFO]: Chat from s: Az_xiaofeng left s
+[Server] [2025-05-19 16:02:46] [MainLoop.m/INFO]: Chat from m: Az_xiaofeng joined m
+[Server] [2025-05-19 16:03:53] [MainLoop.m/INFO]: Chat from m: Az_xiaofeng left m
+[Server] [2025-05-19 16:03:53] [MainLoop.s/INFO]: Chat from s: Az_xiaofeng joined s
+[Server] [2025-05-19 16:04:27] [MainLoop.s/INFO]: Chat from s: Az_xiaofeng left s
