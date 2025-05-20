@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bc
+  name: mcdproxy
   labels:
-    app: bc
+    app: mcdproxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: bc
+      app: mcdproxy
   template:
     metadata:
       labels:
-        app: bc
+        app: mcdproxy
     spec:
       containers:
-        - name: bungeecord
-          image: mcdreforged/mcdreforged-temurin:latest-jdk17-extra
+        - name: mcdproxy
+          image: desxiaofeng/mcdproxy
           workingDir: /data
-          command: ["java"]
-          args: ["-jar", "BungeeCord.jar"]
+          command: ["mcdproxy"]
+          args: ["{}.sducraft.top:25565", "bc.{}.svc.cluster.local:25565"]
           tty: true
           stdin: true
           ports:
@@ -30,19 +30,20 @@ spec:
       volumes:
         - name: data
           hostPath:
-            path: /home/mc/muti_server_group/xiaofeng/bc
+            path: /home/mc/muti_server_group/xiaofeng/mcdproxy
             type: DirectoryOrCreate
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: bc
+  name: mcdproxy
 spec:
   selector:
-    app: bc
+    app: mcdproxy
   ports:
     - protocol: TCP
       port: 25565
       targetPort: 25565
-  type: ClusterIP
+      nodePort: 30000
+  type: NodePort
 

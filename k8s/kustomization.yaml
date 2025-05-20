@@ -6,3 +6,4 @@ resources:
   - s.yaml
   - c.yaml
   - chatbridge.yaml
+  - mcdproxy.yaml
